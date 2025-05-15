@@ -2,7 +2,16 @@ body {
   margin: 0;
   overflow: hidden;  /* Prevent scrollbars */
   background-color: #121212;
-  user-select: none;;
+  user-select: none;
+}
+
+@font-face {
+  font-family: 'logofont';
+  /* Use forward slashes instead of backslashes for paths */
+  src: url('Fonts/KyivTypeSans-Thin.ttf') format('truetype');
+  font-weight: thin;
+  font-style: normal;
+  font-display: swap; /* Improves performance */
 }
 
 canvas {
@@ -20,18 +29,21 @@ canvas {
 #navbar
 {
   width: 100vw;
-  background-color: #2B2B2B;
-  height: 75px;
+  height: 120px;
+  background: linear-gradient(to bottom, #2B2B2B 70%, #121212 100%);
   display: flex;
   position: absolute;
-  top: 0;
+  top: -120px;
   left: 0;
+  animation: navSlide 2s ease-in-out forwards;
 }
 
 #logo
 {
   position: absolute;
   font-size: 125px;
+  font-family: 'logofont';	
+  font-weight: thin;  
   animation: logoToNav 3s ease-in-out forwards;
   color: white;
   margin-bottom: 25vh;
@@ -47,12 +59,27 @@ canvas {
     font-size: scale(0.3);
   }
   80% {
-    transform: translateY(-127vh);
-    scale: 0.3;
+    transform: translateY(-94vh);
+    scale: 0.4;
   }
 
   100% {
-    transform: translate(-100vw ,-127vh);
-    scale: 0.3;
+    transform: translate(-110vw, -94vh);
+    scale: 0.4;
+  }
+}
+
+@keyframes navSlide
+{
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(120px);
   }
 }
