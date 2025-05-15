@@ -20,16 +20,18 @@ canvas {
 #navbar
 {
   width: 100vw;
-  color: #2B2B2B;
-  height: 50px;
+  background-color: #2B2B2B;
+  height: 75px;
   display: flex;
   position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #logo
 {
   position: absolute;
-  font-size: 8vw;
+  font-size: 125px;
   animation: logoToNav 3s ease-in-out forwards;
   color: white;
   margin-bottom: 25vh;
@@ -50,8 +52,7 @@ canvas {
   }
 
   100% {
-    transform: translate(-145vw, -127vh);
-
+    transform: translate(-100vw ,-127vh);
     scale: 0.3;
   }
 }
