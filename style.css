@@ -32,7 +32,7 @@ canvas {
   font-size: 8vw;
   animation: logoToNav 3s ease-in-out forwards;
   color: white;
-  margin: 0;
+  margin-bottom: 25vh;
 }
 
 @keyframes logoToNav
@@ -45,12 +45,12 @@ canvas {
     font-size: scale(0.3);
   }
   80% {
-    transform: translateY(-150vh);
+    transform: translateY(-127vh);
     scale: 0.3;
   }
 
   100% {
-    transform: translate(-145vw, -150vh);
+    transform: translate(-145vw, -127vh);
 
     scale: 0.3;
   }
