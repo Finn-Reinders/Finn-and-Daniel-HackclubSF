@@ -1,8 +1,57 @@
 body {
   margin: 0;
   overflow: hidden;  /* Prevent scrollbars */
+  background-color: #121212;
+  user-select: none;;
 }
 
 canvas {
-  display: block;  /* Make canvas fill the whole page */
+  display: block; 
+}
+
+#logowrapper
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#navbar
+{
+  width: 100vw;
+  color: #2B2B2B;
+  height: 50px;
+  display: flex;
+  position: absolute;
+}
+
+#logo
+{
+  position: absolute;
+  font-size: 8vw;
+  animation: logoToNav 3s ease-in-out forwards;
+  color: white;
+  margin: 0;
+}
+
+@keyframes logoToNav
+{
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(0);
+    font-size: scale(0.3);
+  }
+  80% {
+    transform: translateY(-150vh);
+    scale: 0.3;
+  }
+
+  100% {
+    transform: translate(-145vw, -150vh);
+
+    scale: 0.3;
+  }
 }
