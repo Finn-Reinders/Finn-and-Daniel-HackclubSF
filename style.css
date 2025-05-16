@@ -18,6 +18,14 @@ canvas {
   display: block; 
 }
 
+#logowrapper
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 #navbar
 {
   width: 100vw;
@@ -27,63 +35,36 @@ canvas {
   position: absolute;
   top: -120px;
   left: 0;
-}
-
-#logowrapper
-{
-  display: flex;
+  animation: navSlide 2s ease-in-out forwards;
 }
 
 #logo
 {
   position: absolute;
-  margin: 0;
-  margin-top: 10px;
   font-size: 125px;
   font-family: 'logofont';	
-  font-weight: 1000;  
+  font-weight: thin;  
+  animation: logoToNav 3s ease-in-out forwards;
   color: white;
-  top: 30vh;
-}
-
-#bracket
-{
-  display: inline-block;
-  position: relative;
-  transition: transform 0.5s ease-in-out; /* Specify property and duration */
-}
-
-#bracket.open
-{
-  transform: translateX(200px);
+  margin-bottom: 25vh;
 }
 
 @keyframes logoToNav
 {
   0% {
     transform: translateY(0);
-    opacity: 0;
-    left: 37vw;
   }
   20% {
     transform: translateY(0);
     font-size: scale(0.3);
-    left: 37vw;
-  }
-  30%
-  {
-    opacity: 1;
-    left: 37vw;
   }
   80% {
-    transform: translateY(-82vh);
+    transform: translateY(-94vh);
     scale: 0.4;
-    left: 37vw;
   }
 
   100% {
-    left: 0;
-    transform: translateY(-82vh);
+    transform: translate(-110vw, -94vh);
     scale: 0.4;
   }
 }
