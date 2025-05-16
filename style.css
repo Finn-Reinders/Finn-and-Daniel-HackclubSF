@@ -18,14 +18,6 @@ canvas {
   display: block; 
 }
 
-#logowrapper
-{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 #navbar
 {
   width: 100vw;
@@ -35,36 +27,64 @@ canvas {
   position: absolute;
   top: -120px;
   left: 0;
-  animation: navSlide 2s ease-in-out forwards;
+}
+
+#logowrapper
+{
+  display: flex;
 }
 
 #logo
 {
   position: absolute;
+  margin: 0;
+  margin-top: 10px;
   font-size: 125px;
-  font-family: 'logofont';	
-  font-weight: thin;  
-  animation: logoToNav 3s ease-in-out forwards;
+  font-family: 'logofont';    
+  font-weight: 1000;  
   color: white;
+  top: 30vh;
+  opacity: 0;
+}
 
+#bracket
+{
+  display: inline-block;
+  position: relative;
+  transition: transform 0.5s ease-in-out; /* Specify property and duration */
+}
+
+#bracket.open
+{
+  transform: translateX(200px);
 }
 
 @keyframes logoToNav
 {
   0% {
     transform: translateY(0);
+    opacity: 0;
+    left: 37vw;
   }
   20% {
     transform: translateY(0);
     font-size: scale(0.3);
+    left: 37vw;
+  }
+  30%
+  {
+    opacity: 1;
+    left: 37vw;
   }
   80% {
-    transform: translateY(-94vh);
+    transform: translateY(-82vh);
     scale: 0.4;
+    left: 37vw;
   }
 
   100% {
-    transform: translate(-110vw, -94vh);
+    left: 0;
+    transform: translateY(-82vh);
     scale: 0.4;
     opacity: 1;
   }
