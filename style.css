@@ -46,7 +46,7 @@ canvas {
   font-weight: thin;  
   animation: logoToNav 3s ease-in-out forwards;
   color: white;
-  margin-bottom: 25vh;
+
 }
 
 @keyframes logoToNav
@@ -66,6 +66,7 @@ canvas {
   100% {
     transform: translate(-110vw, -94vh);
     scale: 0.4;
+    opacity: 1;
   }
 }
 
