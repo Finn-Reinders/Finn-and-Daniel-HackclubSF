@@ -43,9 +43,9 @@ canvas {
   font-family: 'logofont';    
   font-weight: 1000;  
   color: white;
-  top: 300px; /* Fixed position from top */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Offset by half width for perfect centering */
+  top: 300px;
+  left: 50%; 
+  transform: translateX(-50%);
   opacity: 0;
   display: flex;
 }
@@ -65,7 +65,7 @@ canvas {
 @keyframes logoToNav
 {
   0% {
-    top: 300px;
+    top: 400px;
     left: 50%;
     transform: translateX(-50%) scale(1);
     opacity: 0;
@@ -82,18 +82,18 @@ canvas {
     opacity: 1;
   }
   60% {
-    top: -40px; /* Start moving up while scaling */
+    top: -40px;
     left: 50%;
     transform: translateX(-50%) scale(0.4);
   }
   80% {
-    top: -40px; /* Complete the vertical movement */
-    left: 50%; /* Still centered horizontally */
-    transform: translateX(-50%) scale(0.4);
+    top: -40px; 
+    left: -40px; 
+    transform: scale(0.4);
   }
   100% {
-    top: -40px; /* Maintain final vertical position */
-    left: -40px; /* Now move horizontally to the left */
+    top: -40px;
+    left: -40px;
     transform: translateX(0) scale(0.4);
     opacity: 1;
   }
