@@ -16,6 +16,9 @@ body {
 
 canvas {
   display: block; 
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 #navbar
@@ -162,3 +165,4 @@ canvas {
   gap: 5px;
   align-items: center;
 }
+
