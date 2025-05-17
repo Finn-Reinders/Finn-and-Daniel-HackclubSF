@@ -45,18 +45,19 @@ canvas {
   color: white;
   top: 30vh;
   opacity: 0;
+  display:  flex
 }
 
 #bracket
 {
   display: inline-block;
   position: relative;
-  transition: transform 0.5s ease-in-out; /* Specify property and duration */
+  transition: transform 0.5s ease-in-out;
 }
 
 #bracket.open
 {
-  transform: translateX(600px);
+  transform: translateX(1650px);
 }
 
 @keyframes logoToNav
@@ -103,4 +104,61 @@ canvas {
   100% {
     transform: translateY(120px);
   }
+}
+
+.menu-item
+{
+  display: inline-block;
+  font-family: 'logofont';
+  font-size: 60px;
+  color: white;
+  text-decoration: none;
+  margin: 10px 0;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.5s ease;
+  position: relative;
+  pointer-events: none;
+}
+
+.menu-item:not(:last-child)::after {
+  content: "•";
+  display: inline-block;
+  margin: 0 15px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.menu-item.opened:not(:last-child)::after {
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
+.menu-item.opened
+{
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.menu-item:nth-child(1).opened { transition-delay: 0.1s; }
+.menu-item:nth-child(2).opened { transition-delay: 0.15s; }
+.menu-item:nth-child(3).opened { transition-delay: 0.2s; }
+.menu-item:nth-child(4).opened { transition-delay: 0.25s; }
+.menu-item:nth-child(5).opened { transition-delay: 0.3s; }
+.menu-item:nth-child(6).opened { transition-delay: 0.35s; }
+
+#logo-menu {
+  position: absolute;
+  left: calc(100% + 20px);
+  top: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: auto;
+  z-index: 10;
+  white-space: nowrap;
+  gap: 5px;
+  align-items: center;
 }
