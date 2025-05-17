@@ -1,3 +1,5 @@
+import * as THREE from 'https://cdn.skypack.dev/three@0.150.0';
+
 document.addEventListener("DOMContentLoaded", function() 
 {
     const navbar = document.getElementById('navbar');
