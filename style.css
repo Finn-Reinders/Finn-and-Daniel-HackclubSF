@@ -1,7 +1,13 @@
+:root
+{
+  --backgroundColor: #121212;
+  --textColor: #ffffff;
+}
+
 body {
   margin: 0;
   overflow: hidden;  /* Prevent scrollbars */
-  background-color: #121212;
+  background-color: var(--backgroundColor);
   user-select: none;
 }
 
