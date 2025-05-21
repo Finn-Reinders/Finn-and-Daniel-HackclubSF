@@ -1,0 +1,17 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+canvas
+{
+  display: block;
+  margin: auto;
+  background-color: black;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+}
