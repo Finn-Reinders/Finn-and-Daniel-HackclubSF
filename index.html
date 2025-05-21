@@ -20,10 +20,18 @@
       </div>
       <span id="bracket">]</span></h1>
   </div>
-  <canvas id="bg"></canvas>
-  <!-- Update to use ES modules -->
-  <!-- <script type="module" src="https://cdn.skypack.dev/three@0.150.0"></script>
-  <script type="module" src="https://cdn.skypack.dev/three@0.150.0/examples/jsm/loaders/GLTFLoader.js"></script> -->
+
+  
+  <!-- ONLY THIS SINGLE SCRIPT TAG FOR YOUR JS -->
+    <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
   <script type="module" src="functioning.js"></script>
+  
 </body>
 </html>

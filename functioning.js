@@ -1,50 +1,81 @@
-// Change this import to use a CDN URL
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+import * as THREE from 'three';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+
+const monkeyUrl = new URL('./Models/Exports/2exportyboard.glb', import.meta.url);
+
 
 document.addEventListener("DOMContentLoaded", function()
 {
-    // THREE.js setup
+
+
+    { // Torus animation
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x121212);
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+
+    const geometry = new THREE.TorusGeometry(1, 0.4, 16, 100);
+    const material = new THREE.MeshBasicMaterial({ color: 0xFF6347, wireframe: true });
+    const torus = new THREE.Mesh(geometry, material);   
+
+    const light = new THREE.AmbientLight(0x404040);
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
     
-    const renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector('#bg'),
-        alpha: true // Makes background transparent
-    });
-    
-    // Size for the renderer
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.position.setZ(30);
-    
-    // Lighting
-    const pointLight = new THREE.PointLight(0xffffff);
-    pointLight.position.set(5, 5, 5);
-    
-    const ambientLight = new THREE.AmbientLight(0x404040);
-    scene.add(pointLight, ambientLight);
-    
-    // Add a grid helper to help visualize the scene
-    const gridHelper = new THREE.GridHelper(200, 50);
-    scene.add(gridHelper);
-    
-    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-    const material = new THREE.MeshStandardMaterial({ color: 0xFF6347, wireframe: true });
-    const torus = new THREE.Mesh(geometry, material);
-    
+    scene.add(light);
     scene.add(torus);
-    
+
+    const clock = new THREE.Clock();
+    let mixer;
+
     function animate() {
         requestAnimationFrame(animate);
-
         torus.rotation.x += 0.01;
-        torus.rotation.y += 0.005;
-        
+        torus.rotation.y += 0.01;
+        if(mixer)
+            mixer.update(clock.getDelta());
         renderer.render(scene, camera);
     }
     
-    animate();
+
+    const assetLoader = new GLTFLoader();
     
+    assetLoader.load(monkeyUrl.href, function(gltf) {
+        const model = gltf.scene;
+        scene.add(model);
+
+        model.scale.set(7.5, 7.5, 7.5);
+        model.position.set(0, -1, 0);
+        model.rotation.set(0, Math.PI, 0);
+        
+        // Create mixer INSIDE the callback where model is defined
+        if (gltf.animations && gltf.animations.length) {
+            mixer = new THREE.AnimationMixer(model);
+            const clips = gltf.animations;
+            
+            clips.forEach(function(clip) {
+                const originalDuration = clip.duration;
+                const targetDuration = 200/60;
+                const timeScale = originalDuration / targetDuration;
+                const action = mixer.clipAction(clip);
+                action.timeScale = timeScale;
+                action.setLoop(THREE.LoopRepeat, Infinity);
+                action.play();
+            });
+        }
+    }, 
+    // Progress callback
+    function(xhr) {
+        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+    },
+    // Error callback
+    function(error) {
+        console.error('Error loading model:', error);
+    });
+    animate();
+    }
+
     // UI elements
     const navbar = document.getElementById('navbar');
     const logo = document.getElementById('logo');
