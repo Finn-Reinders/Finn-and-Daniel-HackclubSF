@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Keebio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Keebio[HOME]</title>
+  <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
+  <canvas id="canvas"></canvas>
   <header id="navbar"></header>
   <div id="logowrapper">
     <h1 id="logo"><span class="logo-text">Keebio[</span>
@@ -20,10 +21,7 @@
       </div>
       <span id="bracket">]</span></h1>
   </div>
-  
-  <!-- Update to use ES modules -->
-  <script type="module" src="https://cdn.skypack.dev/three@0.150.0"></script>
-  <script type="module" src="https://cdn.skypack.dev/three@0.150.0/examples/jsm/loaders/GLTFLoader.js"></script>
-  <script type="module" src="functioning.js"></script>
+<script type="module" src="/src/main.js"></script>
+<script src="src/functioning.js"></script>
 </body>
 </html>

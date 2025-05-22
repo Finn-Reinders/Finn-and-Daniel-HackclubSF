@@ -1,14 +1,22 @@
+:root
+{
+  --backgroundColor: #121212;
+  --textColor: #ffffff;
+}
+
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   overflow: hidden;  /* Prevent scrollbars */
-  background-color: #121212;
+  background-color: var(--backgroundColor);
   user-select: none;
 }
 
 @font-face {
   font-family: 'logofont';
   /* Use forward slashes instead of backslashes for paths */
-  src: url('Fonts/KyivTypeSans-Thin.ttf') format('truetype');
+  src: url('/Fonts/KyivTypeSans-Thin.ttf') format('truetype');
   font-weight: thin;
   font-style: normal;
   font-display: swap; /* Improves performance */
@@ -43,9 +51,11 @@ canvas {
   font-family: 'logofont';    
   font-weight: 1000;  
   color: white;
-  top: 30vh;
+  top: 300px;
+  left: 50%; 
+  transform: translateX(-50%);
   opacity: 0;
-  display:  flex
+  display: flex;
 }
 
 #bracket
@@ -63,30 +73,36 @@ canvas {
 @keyframes logoToNav
 {
   0% {
-    transform: translateY(0);
+    top: 400px;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
     opacity: 0;
-    left: 37vw;
   }
   20% {
-    transform: translateY(0);
-    font-size: scale(0.3);
-    left: 37vw;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
   }
-  30%
-  {
+  30% {
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
     opacity: 1;
-    left: 37vw;
+  }
+  60% {
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.4);
   }
   80% {
-    transform: translateY(-82vh);
-    scale: 0.4;
-    left: 37vw;
+    top: -40px; 
+    left: -40px; 
+    transform: scale(0.4);
   }
-
   100% {
-    left: 0;
-    transform: translateY(-82vh);
-    scale: 0.4;
+    top: -40px;
+    left: -40px;
+    transform: translateX(0) scale(0.4);
     opacity: 1;
   }
 }
@@ -162,3 +178,4 @@ canvas {
   gap: 5px;
   align-items: center;
 }
+
